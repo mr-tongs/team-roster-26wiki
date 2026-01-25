@@ -17,7 +17,7 @@
 - **完成任务**：测试 Git 与 GitHub；完成开发环境部署，基础 HTML 页面。
 - **估计完成时间**：1小时
 - **相关链接**：
-  - [GitHub 仓库]([foeyt/iGEM-Web: For iGEM training](https://github.com/foeyt/iGEM-Web))
+  - [GitHub 仓库](https://github.com/foeyt/iGEM-Web)
   - [GitHub Pages 链接]([个人简历](https://foeyt.github.io/iGEM-Web/))
 
 - **备注**：样式处理使用 Gemini 协助美化，GitHub Actions 的配置 yml 文件使用 Gemini 生成。
