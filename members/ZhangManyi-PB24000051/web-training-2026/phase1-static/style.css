@@ -1,0 +1,492 @@
+/* --- 基础重置 --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #a660d6, #4e68b6);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;     /* 关键修正：让内容在水平方向居中 */
+    justify-content: center; /* 垂直方向居中 */
+    padding: 40px 20px;
+}
+
+/* --- 主容器 --- */
+.container {
+    width: 95%;
+    max-width: 1400px;
+}
+
+/* --- 包装器 --- */
+.profile-card-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px; 
+    align-items: flex-start; /* 必须是 flex-start，否则 sticky 会失效 */
+}
+
+/* --- 左侧独立卡片 (添加了粘性定位) --- */
+.card-left {
+    flex: 0 0 320px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 40px 20px;
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    height: auto; 
+    
+    /* === 核心修改：粘性定位 === */
+    position: -webkit-sticky; /* 兼容 Safari */
+    position: sticky;
+    top: 40px; /* 距离浏览器顶部 20px 时卡住 */
+    z-index: 10; /* 确保不被遮挡 */
+}
+
+.avatar-box {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid #e0e0e0;
+    padding: 3px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-name1 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.user-name2 {
+    font-size: 20px;
+    color: #777;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.user-role {
+    font-size: 14px;
+    color: #3498db;
+    margin-bottom: 25px;
+    font-weight: 500;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.social-btn {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #f2f2f2;
+    color: #555;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.social-btn:hover {
+    background: #3498db;
+    color: #fff;
+}
+
+.action-btns {
+    display: flex;
+    gap: 15px;
+}
+
+.btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background-color: #2980b9;
+}
+
+.btn-dark {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.btn-dark:hover {
+    background-color: #1a252f;
+}
+
+/* --- 右侧独立卡片 --- */
+.card-right {
+    flex: 1;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    padding: 40px 50px;
+}
+
+.section-block {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #3498db;
+    font-size: 20px;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.text-desc {
+    color: #666;
+    text-indent: 2em;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.info-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
+.info-item {
+    flex: 0 0 50%;
+    margin-bottom: 15px;
+    font-size: 14px;
+    color: #444;
+}
+
+.info-item strong {
+    color: #333;
+    margin-right: 5px;
+}
+
+.info-item span {
+    color: #777;
+}
+
+.services-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.service-box {
+    background-color: #f8f9fa;
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.service-box i {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.service-box span {
+    font-size: 13px;
+    font-weight: 600;
+    color: #555;
+}
+
+.icon-html { color: #e34f26; }
+.icon-css { color: #1572b6; }
+.icon-js { color: #f7df1e; }
+.icon-sass { color: #cc6699; }
+.icon-react { color: #61dafb; }
+
+/* --- 响应式设计 --- */
+@media screen and (max-width: 900px) {
+    .profile-card-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card-left {
+        width: 100%;
+        flex: auto;
+        /* === 手机端取消粘性定位 === */
+        /* 因为手机上是一列，如果粘住会一直挡在顶部，体验不好 */
+        position: static; 
+    }
+
+    .card-right {
+        padding: 30px 20px;
+    }
+    
+    .info-item {
+        flex: 0 0 100%;
+    }
+    
+    .services-list {
+        justify-content: center;
+    }
+}
+
+.spacer {
+    height: 20px;
+    width: 100%;
+    border-bottom: 1px solid #eee; /* 加一条淡淡的分割线 */
+    margin-bottom: 20px;
+}
+
+/* 联系方式列表容器 */
+.contact-list {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /*每行之间的距离*/
+    margin-bottom: 30px;
+    padding-left: 10px; /* 稍微往右缩进一点，看起来更平衡 */
+}
+
+/* 单个联系行 */
+.contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+/* 图标样式 */
+.contact-item i {
+    width: 25px; /* 固定宽度确保文字对齐 */
+    color: #3498db; /* 使用主题蓝色 */
+    font-size: 16px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+/* --- 学历部分样式 --- */
+.education-section {
+    width: 100%;
+    text-align: left; /* 文字左对齐 */
+    padding-left: 10px;
+}
+
+.edu-title {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.edu-item {
+    margin-bottom: 20px;
+}
+
+.edu-level {
+    font-size: 20px;
+    font-weight: 700;
+    color: #777;
+}
+
+.edu-major {
+    font-size: 20px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.edu-school, .edu-date {
+    font-size: 15px;
+    color: #777;
+    line-height: 1.5;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #3498db;
+    color: #fff;
+    border-radius: 50%;
+    
+    /* 居中图标 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* 去掉下划线 */
+    font-size: 20px;
+    
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+    
+    /* 简单的悬停动画 */
+    transition: transform 0.3s;
+}
+
+.back-to-top:hover {
+    background-color: #2980b9;
+    transform: translateY(-5px);
+}
+
+.project-card {
+    background-color: #f8f9fa; /* 淡灰色背景，区分内容 */
+    border-radius: 12px;       /* 圆角 */
+    padding: 25px;             /* 内边距 */
+    margin-top: 20px;          /* 与上方标题的距离 */
+    border-left: 5px solid #3498db; /* 左侧加一道你的主题蓝杠，增加设计感 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 极淡的阴影 */
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px); /* 鼠标悬停微微上浮 */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 中文标题 */
+.project-title-cn {
+    font-size: 18px;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+/* 英文标题 */
+.project-title-en {
+    font-size: 14px;
+    color: #7f8c8d; /* 灰色，弱化显示 */
+    font-weight: 400;
+    margin-bottom: 15px;
+    font-family: 'Segoe UI', sans-serif; /* 英文专用字体优化 */
+}
+
+/* 时间信息 */
+.project-meta {
+    font-size: 14px;
+    color: #3498db; /* 使用主题蓝色 */
+    font-weight: 600;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* 图标和文字的间距 */
+}
+
+/* 列表样式 */
+.project-desc {
+    padding-left: 20px; /* 列表左缩进 */
+}
+
+.project-desc li {
+    font-size: 15px;
+    color: #555;
+    line-height: 1.8; /* 增加行高，让文字不拥挤 */
+    margin-bottom: 8px;
+    list-style-type: disc; /* 恢复圆点 */
+}
+
+/* 针对列表圆点的颜色优化（可选） */
+.project-desc li::marker {
+    color: #3498db; /* 让前面的圆点变成蓝色 */
+}
+
+/* --- 获奖经历卡片样式 --- */
+.award-card {
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    padding: 20px 25px;       /* 上下20px，左右25px */
+    margin-top: 20px;
+    border-left: 5px solid #f1c40f; /* 金色边框，代表金牌/荣誉 */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+}
+
+.award-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* 中文标题 */
+.award-title-cn {
+    font-size: 18px;
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 5px;
+    line-height: 1.4;
+}
+
+/* 英文标题 */
+.award-title-en {
+    font-size: 14px;
+    color: #7f8c8d;
+    font-weight: 400;
+    margin-bottom: 12px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* 时间与图标信息 */
+.award-meta {
+    font-size: 14px;
+    color: #f1c40f; /* 金色文字，与边框呼应 */
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* --- 页脚样式 --- */
+.site-footer {
+    width: 100%;
+    text-align: center;      /* 文字居中 */
+    padding: 30px 0;         /* 上下留出空间 */
+    margin-top: 40px;        /* 与上方内容的间距 */
+    color: rgba(255, 255, 255, 0.7); /* 70%透明度的白色，看起来柔和 */
+    font-size: 14px;         /* 字体稍微小一点 */
+    font-weight: 300;        /* 字体细一点，更精致 */
+    letter-spacing: 1px;     /*字间距稍微拉开 */
+}
+
+/* 简单的悬停效果（可选） */
+.site-footer:hover {
+    color: rgba(255, 255, 255, 1); /* 鼠标放上去变全白 */
+    cursor: default;
+}
